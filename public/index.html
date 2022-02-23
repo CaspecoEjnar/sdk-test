@@ -46,47 +46,60 @@
    
 
 <script>
-  // (function(w, d, s, id, cso) {
-  //   w['CaspecoSDKObject'] = cso;
-  //   var js, cjs = d.getElementsByTagName(s)[0];
-  //   if (d.getElementById(id)) return;
-  //   js = d.createElement(s); js.id = id;
-  //   js.src = 'sdk.js';
-  //   cjs.parentNode.insertBefore(js, cjs);
-  // }(window, document, 'script', 'sdk.js', 'ca'));
+  (function(w, d, s, id, cso) {
+    w['CaspecoSDKObject'] = cso;
+    var js, cjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = 'sdk.js';
+    cjs.parentNode.insertBefore(js, cjs);
+  }(window, document, 'script', 'sdk.js', 'ca'));
 
    
   // this.addEventListener("bookingEvent", function () {
   //       console.log("received");})
 
-  // window.addEventListener('DOMContentLoaded', (event) => {
-  //   console.log(window)
+  window.addEventListener('DOMContentLoaded', (event) => {
+    console.log(window)
     
-  //     var ul = document.getElementById("log");
+      var ul = document.getElementById("log");
       
-  //     function posty (event, payload) {
-  //       console.log("received:", event, payload);
-  //       var li = document.createElement("li");
-  //       li.innerHTML = event + " <pre>" + JSON.stringify(payload, undefined, 2) + "</pre>";
-  //       ul.appendChild(li);
-  //     }
+      function posty (event, payload) {
+        console.log("received:", event, payload);
+        var li = document.createElement("li");
+        li.innerHTML = event + " <pre>" + JSON.stringify(payload, undefined, 2) + "</pre>";
+        ul.appendChild(li);
+      }
 
 
-  //     ca.addEventListener("bookingEvent", posty);
+      ca.addEventListener("bookingEvent", posty);
 
-  //     ca.forceInit()
-  //     console.log(ca.eventListeners)
-  // });
+      ca.forceInit()
+      console.log(ca.eventListeners)
+  });
 
 </script>
 <script>
-      (function(w,d,s,u,cso,t,e){
-        w['CaspecoSDKObject']=cso;w[cso]=w[cso]||function(){(w[cso].q=w[cso].q||[]).push(arguments);};
-        w[cso].t=1*new Date();t=d.createElement(s);e=d.getElementsByTagName(s)[0];t.async=1;t.src=u;
-        e.parentNode.insertBefore(t,e);
-      })(window, document, 'script', 'https://cdn.caspeco.se/sv_SE/sdk.js?version=c1.0.0', 'ca');
+//       (function(w,d,s,u,cso,t,e){
+//         w['CaspecoSDKObject']=cso;w[cso]=w[cso]||function(){(w[cso].q=w[cso].q||[]).push(arguments);};
+//         w[cso].t=1*new Date();t=d.createElement(s);e=d.getElementsByTagName(s)[0];t.async=1;t.src=u;
+//         e.parentNode.insertBefore(t,e);
+//       })(window, document, 'script', 'https://cdn.caspeco.se/sv_SE/sdk.js?version=c1.0.0', 'ca');
 
-//  this.ca(function () {
+// //  this.ca(function () {
+// //       	var ul = document.getElementById("log");
+        
+// //         ca.addEventListener("bookingEvent", function (event, payload) {
+// //           console.log("received:", event, payload);
+// //           var li = document.createElement("li");
+// //           li.innerHTML = event + " <pre>" + JSON.stringify(payload, undefined, 2) + "</pre>";
+// //           ul.appendChild(li);
+// //         });
+// //       });
+
+
+// // Tracking examples/whatifs
+//       ca(function () {
 //       	var ul = document.getElementById("log");
         
 //         ca.addEventListener("bookingEvent", function (event, payload) {
@@ -96,19 +109,6 @@
 //           ul.appendChild(li);
 //         });
 //       });
-
-
-// Tracking examples/whatifs
-      ca(function () {
-      	var ul = document.getElementById("log");
-        
-        ca.addEventListener("bookingEvent", function (event, payload) {
-          console.log("received:", event, payload);
-          var li = document.createElement("li");
-          li.innerHTML = event + " <pre>" + JSON.stringify(payload, undefined, 2) + "</pre>";
-          ul.appendChild(li);
-        });
-      });
 </script>
 
     
