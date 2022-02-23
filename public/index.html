@@ -46,40 +46,6 @@
    
 
 <script>
-
-  // // This is the (semi unminified) init-snippet that runs on sites using the SDK
-// (function (
-//   w, // window object
-//   d, // document object
-//   s, // element type of the element loading the script default: 'script'
-//   u, // url of the SDK script
-//   cso, // name of the reference to the global SDK-object (initFunc) default: ca
-//   t, // minified declaration of the script (or specified) element variable  default: script
-//   e // minified declaration of the element that the script element will be inserted before
-// ) {
-//   w["CaspecoSDKObject"] = cso;
-//   //InitFunc: (...args: any[]): void
-//   w[cso] =
-//     w[cso] ||
-//     // temporary function to store callbacks
-//     function () {
-//       (w[cso].q = w[cso].q || []).push(arguments);
-//     };
-//   w[cso].t = 1 * new Date();
-//   // create and insert script element
-//   t = d.createElement(s);
-//   e = d.getElementsByTagName(s)[0];
-//   t.async = 1;
-//   t.src = u;
-//   e.parentNode.insertBefore(t, e);
-// })(
-//   window,
-//   document,
-//   "script",
-//   "https://cdn.caspeco.se/sv_SE/sdk.js?version=c1.0.0",
-//   "ca"
-// );
-
   (function(w,d,s,u,cso,t,e){
     w['CaspecoSDKObject']=cso;
     w[cso]=w[cso]||function(){(w[cso].q=w[cso].q||[]).push(arguments);};
@@ -88,29 +54,21 @@
   })(window, document, 'script', 'https://cdn.caspeco.se/sv_SE/sdk.js?version=c1.0.0', 'ca');
 
   
-  // this.addEventListener("bookingEvent", function () {
-  //       console.log("received");})
-
   ca(function () {
-       
-       ca.addEventListener("bookingEvent", function (event, payload) {
-        
-         // if the booking was made and the user acceptsNewsletter let's shoot contact info into newsletter service IdRelay
-         if (event == 'FinalizeWebBooking' && payload.contact.acceptsNewsletter == true)
-         {
-           var xhr = new XMLHttpRequest();
-           var url = "https://trk.idrelay.com/2988/act/3b9e2fe47bb1401590697f7ac701cccc";
-           xhr.open("POST", url, true);
-           xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
-           var data = "email=" + encodeURIComponent(payload.contact.email) + "&cellphone=" + encodeURIComponent(payload.contact.mobile) + "&name=" + encodeURIComponent(payload.contact.fistname + ' ' + payload.contact.lastname) + "&firstname=" + encodeURIComponent(payload.contact.fistname) + "&lastname=" + encodeURIComponent(payload.contact.lastname);
-           
-           console.log(data);
-         }          
-        
-       });
-      
-     });
+      ca.addEventListener("bookingEvent", function (event, payload) {
+
+        // if the booking was made and the user acceptsNewsletter let's shoot contact info into newsletter service IdRelay
+        if (event == 'FinalizeWebBooking' && payload.contact.acceptsNewsletter == true) {
+
+          var data = "email=" + encodeURIComponent(payload.contact.email) + "&cellphone=" + encodeURIComponent(payload.contact.mobile) + "&name=" + encodeURIComponent(payload.contact.fistname + ' ' + payload.contact.lastname) + "&firstname=" + encodeURIComponent(payload.contact.fistname) + "&lastname=" + encodeURIComponent(payload.contact.lastname);
+
+          console.log(data);
+        }
+
+      });
+
+    });
 
 
   // window.addEventListener('DOMContentLoaded', (event) => {
@@ -130,38 +88,6 @@
   // });
 
 </script>
-<script>
-//       (function(w,d,s,u,cso,t,e){
-//         w['CaspecoSDKObject']=cso;w[cso]=w[cso]||function(){(w[cso].q=w[cso].q||[]).push(arguments);};
-//         w[cso].t=1*new Date();t=d.createElement(s);e=d.getElementsByTagName(s)[0];t.async=1;t.src=u;
-//         e.parentNode.insertBefore(t,e);
-//       })(window, document, 'script', 'https://cdn.caspeco.se/sv_SE/sdk.js?version=c1.0.0', 'ca');
-
-// //  this.ca(function () {
-// //       	var ul = document.getElementById("log");
-        
-// //         ca.addEventListener("bookingEvent", function (event, payload) {
-// //           console.log("received:", event, payload);
-// //           var li = document.createElement("li");
-// //           li.innerHTML = event + " <pre>" + JSON.stringify(payload, undefined, 2) + "</pre>";
-// //           ul.appendChild(li);
-// //         });
-// //       });
-
-
-// // Tracking examples/whatifs
-//       ca(function () {
-//       	var ul = document.getElementById("log");
-        
-//         ca.addEventListener("bookingEvent", function (event, payload) {
-//           console.log("received:", event, payload);
-//           var li = document.createElement("li");
-//           li.innerHTML = event + " <pre>" + JSON.stringify(payload, undefined, 2) + "</pre>";
-//           ul.appendChild(li);
-//         });
-//       });
-</script>
-
     
 <style>
 html.desktop.chrome.windowsos.scrollFix::-webkit-scrollbar-thumb {
