@@ -3,7 +3,8 @@
   <head>
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="theme-color" content="#000000" />
     <meta
       name="description"
@@ -29,15 +30,113 @@
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
 
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
-  </body>
-</html>
+
+<div style="display: flex">
+  <div
+    class="caspeco-booking"
+    data-system="se__testbb"
+    data-unitId="14"
+    data-width="400"
+    data-advanced="true"></div>
+  <ul id="log">
+  </ul>
+</div>
+   
+
+<script>
+  // (function(w, d, s, id, cso) {
+  //   w['CaspecoSDKObject'] = cso;
+  //   var js, cjs = d.getElementsByTagName(s)[0];
+  //   if (d.getElementById(id)) return;
+  //   js = d.createElement(s); js.id = id;
+  //   js.src = 'sdk.js';
+  //   cjs.parentNode.insertBefore(js, cjs);
+  // }(window, document, 'script', 'sdk.js', 'ca'));
+
+   
+  // this.addEventListener("bookingEvent", function () {
+  //       console.log("received");})
+
+  // window.addEventListener('DOMContentLoaded', (event) => {
+  //   console.log(window)
+    
+  //     var ul = document.getElementById("log");
+      
+  //     function posty (event, payload) {
+  //       console.log("received:", event, payload);
+  //       var li = document.createElement("li");
+  //       li.innerHTML = event + " <pre>" + JSON.stringify(payload, undefined, 2) + "</pre>";
+  //       ul.appendChild(li);
+  //     }
+
+
+  //     ca.addEventListener("bookingEvent", posty);
+
+  //     ca.forceInit()
+  //     console.log(ca.eventListeners)
+  // });
+
+</script>
+<script>
+      (function(w,d,s,u,cso,t,e){
+        w['CaspecoSDKObject']=cso;w[cso]=w[cso]||function(){(w[cso].q=w[cso].q||[]).push(arguments);};
+        w[cso].t=1*new Date();t=d.createElement(s);e=d.getElementsByTagName(s)[0];t.async=1;t.src=u;
+        e.parentNode.insertBefore(t,e);
+      })(window, document, 'script', 'https://cdn.caspeco.se/sv_SE/sdk.js?version=c1.0.0', 'ca');
+
+//  this.ca(function () {
+//       	var ul = document.getElementById("log");
+        
+//         ca.addEventListener("bookingEvent", function (event, payload) {
+//           console.log("received:", event, payload);
+//           var li = document.createElement("li");
+//           li.innerHTML = event + " <pre>" + JSON.stringify(payload, undefined, 2) + "</pre>";
+//           ul.appendChild(li);
+//         });
+//       });
+
+
+// Tracking examples/whatifs
+      ca(function () {
+      	var ul = document.getElementById("log");
+        
+        ca.addEventListener("bookingEvent", function (event, payload) {
+          console.log("received:", event, payload);
+          var li = document.createElement("li");
+          li.innerHTML = event + " <pre>" + JSON.stringify(payload, undefined, 2) + "</pre>";
+          ul.appendChild(li);
+        });
+      });
+</script>
+
+    
+<style>
+html.desktop.chrome.windowsos.scrollFix::-webkit-scrollbar-thumb {
+  background: rgb(181, 158, 106);
+}
+ 
+html.desktop.chrome.windowsos.scrollFix::-webkit-scrollbar {
+  background-color: #434343;
+}
+
+body {
+  background: #ccc;
+}
+
+#log {
+  font-family: "Courier New", Courier, monospace;
+  background: rgba(0,0,0,.5);
+  color: #fff;
+  min-width: 400px;
+  margin: 2em;
+  padding: 1em;
+  overflow: scroll;
+}
+
+#log li {
+  margin: 1em;
+}
+
+</style>
