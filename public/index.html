@@ -38,6 +38,7 @@
     class="caspeco-booking"
     data-system="se__testbb"
     data-unitId="14"
+    data-lang="fi-FI"
     data-width="400"
     data-advanced="true"></div>
   <ul id="log">
@@ -51,42 +52,7 @@
     w[cso]=w[cso]||function(){(w[cso].q=w[cso].q||[]).push(arguments);};
     w[cso].t=1*new Date();t=d.createElement(s);e=d.getElementsByTagName(s)[0];t.async=1;t.src=u;
     e.parentNode.insertBefore(t,e);
-  })(window, document, 'script', 'https://cdn.caspeco.se/sv_SE/sdk.js?version=c1.0.0', 'ca');
-
-  
-  ca(function () {
-
-      ca.addEventListener("bookingEvent", function (event, payload) {
-
-        // if the booking was made and the user acceptsNewsletter let's shoot contact info into newsletter service IdRelay
-        if (event == 'FinalizeWebBooking' && payload.contact.acceptsNewsletter == true) {
-
-          var data = "email=" + encodeURIComponent(payload.contact.email) + "&cellphone=" + encodeURIComponent(payload.contact.mobile) + "&name=" + encodeURIComponent(payload.contact.fistname + ' ' + payload.contact.lastname) + "&firstname=" + encodeURIComponent(payload.contact.fistname) + "&lastname=" + encodeURIComponent(payload.contact.lastname);
-
-          console.log(data);
-        }
-
-      });
-
-    });
-
-
-  // window.addEventListener('DOMContentLoaded', (event) => {
-
-  //   console.log(window)
-    
-  //   var ul = document.getElementById("log");
-    
-  //   function posty (event, payload) {
-  //     console.log("received:", event, payload);
-  //     var li = document.createElement("li");
-  //     li.innerHTML = event + " <pre>" + JSON.stringify(payload, undefined, 2) + "</pre>";
-  //     ul.appendChild(li);
-  //   }
-
-  //   ca.addEventListener("bookingEvent", posty);
-  // });
-
+  })(window, document, 'script', 'sdk.js', 'ca');
 </script>
     
 <style>
